@@ -29,9 +29,9 @@ app.use(session({
 
 
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   const Scholar = mongoose.model('Scholar');
-  await Scholar.createCollection();
+
    Scholar.find({},(err, scholars) => {
     console.log(scholars);
     res.render('index', {home: true, scholars: scholars});
