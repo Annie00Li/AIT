@@ -30,9 +30,10 @@ app.use(session({
 const Scholar = mongoose.model('Scholar');
 
 
-app.get('/', (req, res) => {
-  Scholar.find({},(err, scholars) => {
-    res.render('index', {scholars: scholars});
+app.get('/', async (req, res) => {
+  await Scholar.find({},(err, scholars) => {
+    console.log(scholars);
+    res.render('index', {home: true, scholars: scholars});
   });
 });
 
