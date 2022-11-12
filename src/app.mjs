@@ -1,11 +1,17 @@
 import './db.mjs';
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import session from 'express-session';
 
 import path from 'path';
 import url from 'url';
+
 //import * as auth from './auth.mjs';
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
+
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -57,5 +63,5 @@ app.post('/scholar/add', (req, res) => {
   });
 });
 
-
-app.listen(process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});
