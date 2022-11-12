@@ -2,7 +2,7 @@
   "name": "ait-annie00li",
   "version": "1.0.0",
   "description": "Academics usually find collaborators for research among their acquaintances. What if they need experts outside their current connections? Today, there is a website for academics to build their profiles, so they can show their research interests.",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
