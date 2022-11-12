@@ -34,4 +34,4 @@ mongoose.model('User', UserSchema);
 mongoose.model('Scholar', ScholarSchema);
 
 const URI = process.env.MONGODB_URI || 'mongodb://localhost/ait-annie00li';
-await mongoose.connect(URI, ()=>{console.log('connected to mongodb ',URI);});
+mongoose.connect(URI, ()=>{console.log('connected to mongodb ',URI);});
