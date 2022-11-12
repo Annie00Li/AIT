@@ -13,7 +13,9 @@ import mongooseSlugPlugin from 'mongoose-slug-plugin';
 const UserSchema = new mongoose.Schema({
   username: {type:String, required: true},
   email: {type:String, required: true},
-  password: {type: String, unique: true, required: true}
+  password: {type: String, unique: true, required: true},
+  bufferCommands: false,
+  autoCreate:false
 });
 
 // a user registered through the web app
@@ -25,7 +27,9 @@ const ScholarSchema = new mongoose.Schema({
   research_area: {type: String},
   research_topic: {type: String},
   published_paper: {type:String},
-  chatted: {type: Boolean, default: false}
+  chatted: {type: Boolean, default: false},
+  bufferCommands: false,
+  autoCreate:false
 });
 
 // TODO: add remainder of setup for slugs, connection, registering models, etc. below
