@@ -33,4 +33,3 @@ ScholarSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=name%>'});
 mongoose.model('User', UserSchema);
 mongoose.model('Scholar', ScholarSchema);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project');
