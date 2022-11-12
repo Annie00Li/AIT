@@ -33,4 +33,5 @@ ScholarSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=name%>'});
 mongoose.model('User', UserSchema);
 mongoose.model('Scholar', ScholarSchema);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ait-annie00li', ()=>{console.log('connected to mongodb');});
+const URI = process.env.MONGODB_URI || 'mongodb://localhost/ait-annie00li';
+mongoose.connect(URI, ()=>{console.log('connected to mongodb ',URI);});
