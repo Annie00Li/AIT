@@ -31,10 +31,9 @@ const Scholar = mongoose.model('Scholar');
 
 
 app.get('/', (req, res) => {
- // Scholar.find({},(err, scholars) => {
-   // res.render('index', {home: true, scholars: scholars});
-  //});
-  res.render('scholar-add');
+  Scholar.find({},(err, scholars) => {
+    res.render('index', {scholars: scholars});
+  });
 });
 
 app.get('/scholar/add', (req, res) => {
