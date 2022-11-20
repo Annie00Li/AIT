@@ -80,7 +80,7 @@ app.post('/search', (req, res) => {
 app.get('/search_result', (req, res) => {
   const Scholar = mongoose.model('Scholar');
 
-   Scholar.find({input},(scholars) => {
+   Scholar.find({'person'},(scholars) => {
     res.render('search-result', {scholars: scholars});
   });
 })
