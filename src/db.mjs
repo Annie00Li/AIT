@@ -57,7 +57,7 @@ const s1 = new Scholar({
 });
 s1.save((err, savedData) => {
   console.log('saved', savedData);
-});
+});*/
 
 const s2 = new Scholar({
   name: 'Alexi Brosefino',
@@ -71,7 +71,7 @@ const s2 = new Scholar({
 s2.save((err, savedData) => {
   console.log('saved', savedData);
 })
-*/
+
 
 
 
