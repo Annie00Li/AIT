@@ -10,6 +10,7 @@ function handleSearchForm(evt) {
     evt.preventDefault();
  
     const input = document.querySelector('input[type="text"]').value;
+    console.log(input);
 
     const Scholar = mongoose.model('Scholar');
 
