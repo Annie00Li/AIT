@@ -69,16 +69,20 @@ app.get('/search', (req, res) => {
   res.render('search');
 });
 
+let input;
 app.post('/search', (req, res) => {
-  const input = request.body.keyword;
-  const Scholar = mongoose.model('Scholar');
-  Scholar.find({}, (err, scholars) => {
+  input = request.body.keyword;
+
     res.redirect('/search_result');
-  });
+  
 });
 
 app.get('/search_result', (req, res) => {
-  res.render('search-result', {scholars: scholars});
+  const Scholar = mongoose.model('Scholar');
+
+   Scholar.find({input},(err, scholars) => {
+    res.render('search-result', {home: true, scholars: scholars});
+  });
 })
 
 const PORT = process.env.PORT || 3000;
