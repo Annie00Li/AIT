@@ -71,7 +71,7 @@ app.get('/search', (req, res) => {
 
 let input;
 app.post('/search', (req, res) => {
-  //input = request.body.keyword;
+  input = req.body.keyword;
 
     res.redirect('/search_result');
   
