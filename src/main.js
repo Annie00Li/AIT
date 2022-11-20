@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+
 
 function main() {
     const btn = document.querySelector(".searchBtn");
