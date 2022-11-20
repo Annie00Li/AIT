@@ -65,5 +65,9 @@ app.post('/scholar/add', (req, res) => {
   });
 });
 
+app.get('/search', (req, res) => {
+  res.render('search');
+})
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});

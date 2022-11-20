@@ -21,7 +21,7 @@ body {
 .home-link {
 	position: absolute;
 	top: 0.25em;
-	left: 0.75em;
+	left: -0.75em;
 }
 
 .login-status {
