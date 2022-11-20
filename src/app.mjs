@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import session from 'express-session';
+import './main.js';
 
 import path from 'path';
 import url from 'url';
@@ -78,12 +79,8 @@ app.post('/search', (req, res) => {
 });
 
 app.get('/search_result', (req, res) => {
-  const Scholar = mongoose.model('Scholar');
-
-   Scholar.find({name:'Abe Ziegler'},(scholars) => {
-    res.render('search-result', {scholars: scholars});
-  });
-})
+  res.render('search-result');
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});
