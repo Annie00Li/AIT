@@ -81,7 +81,7 @@ app.get('/search_result', (req, res) => {
   const Scholar = mongoose.model('Scholar');
 
    Scholar.find({input},(err, scholars) => {
-    res.render('search-result', {home: true, scholars: scholars});
+    res.render('search-result', {scholars: scholars});
   });
 })
 
