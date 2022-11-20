@@ -80,10 +80,10 @@ app.post('/search', (req, res) => {
 app.get('/search_result', (req, res) => {
   const Scholar = mongoose.model('Scholar');
 
-   Scholar.find({}).populate(input).exec((err, scholars) => {
-    res.render('search-result', {home: false, scholars: scholars});
+   Scholar.findOne({input},(err, scholars) => {
+    res.render('search-result', {scholars: scholars});
   });
-});
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});
