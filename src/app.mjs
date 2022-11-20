@@ -67,7 +67,15 @@ app.post('/scholar/add', (req, res) => {
 
 app.get('/search', (req, res) => {
   res.render('search');
-})
+});
+
+app.post('/search', (req, res) => {
+  const input = request.body.keyword;
+  const Scholar = mongoose.model('Scholar');
+  Scholar.find({}, (err, scholars) => {
+    res.render('search-result', {scholars: scholars});
+  });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});
