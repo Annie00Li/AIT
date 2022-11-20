@@ -37,7 +37,7 @@ mongoose.model('Scholar', ScholarSchema);
 
 
 // other user profile
-const Scholar = mongoose.model('Scholar');
+/*const Scholar = mongoose.model('Scholar');
 const s1 = new Scholar({
   name: 'Abe Ziegler',
   degree: 'Doctor of MachineLearning',
@@ -71,6 +71,7 @@ const s2 = new Scholar({
 s2.save((err, savedData) => {
   console.log('saved', savedData);
 })
+*/
 
 
 
