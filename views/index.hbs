@@ -1,12 +1,9 @@
-<h1>My Profile</h1>
-<ol>
-{{#each scholars as |s|}}
-<div>Name: {{name}}</div>
-<div>Degree: {{degree}}</div>
-<div>Major: {{major}}</div>
-<div>Research Area: {{research_area}}</div>
-<div>Research Topic: {{research_topic}}</div>
-<div>Published Paper: {{published_paper}}</div>
-<div></div>
-{{/each}}
-</ol>
+<h1>We Research</h1>
+
+<div>
+    {{#if user}}
+    Hello, {{user.username}}
+    {{/if}}
+</div>
+<div>Get the work done, learn from each other, build long-term relationship, and share interests</div>
+

@@ -10,9 +10,17 @@
 	<div id="outer">
 		<header>
 			<nav>
-				<span class="home-link"><a href="/">My Profile</a> 
+				<span class="home-link"><a href="/">WIRS</a> 
+				<a href="/myprofile">My Profile</a>
 				<a href="/scholar/add">Add Profile</a>
 				<a href="/search">Search</a>
+				</span>
+				<span class="login-status">
+					{{#if user}}
+					Logged in as: {{user.username}}
+					{{else}}
+					<a href="/register">Register</a> or <a href="/login">Login</a>
+					{{/if}}
 				</span>
 				
 			</nav>
