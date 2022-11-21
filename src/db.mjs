@@ -14,6 +14,12 @@ const UserSchema = new mongoose.Schema({
   username: {type:String, required: true},
   email: {type:String, required: true},
   password: {type: String, unique: true, required: true},
+  name: {type: String},
+  degree: {type: String},
+  major: {type: String},
+  research_area: {type: String},
+  research_topic: {type: String},
+  published_paper: {type:String}
 
 });
 
@@ -27,6 +33,7 @@ const ScholarSchema = new mongoose.Schema({
   research_topic: {type: String},
   published_paper: {type:String},
   chatted: {type: Boolean, default: false},
+  user: {type: Schema.Types.ObjectId, ref: 'User'}
 
 });
 

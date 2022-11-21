@@ -1,4 +1,5 @@
 import './db.mjs';
+import * as auth from './auth.mjs';
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -27,42 +28,76 @@ app.use(session({
     saveUninitialized: true,
 }));
 
+const loginMessages = {"PASSWORDS DO NOT MATCH": 'Incorrect password', "USER NOT FOUND": 'User doesn\'t exist'};
+const registrationMessages = {"USERNAME ALREADY EXISTS": "Username already exists", "USERNAME PASSWORD TOO SHORT": "Username or password is too short (> 8)"};
 
+// require authenticated user for accessing profile
+// require authenticated user for /sholar/add path
+app.use(auth.authRequired(['/scholar/add']));
+app.use(auth.authRequired(['/myprofile']));
+// make {{user}} variable available for all paths
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+});
 
 app.get('/', (req, res) => {
-  const Scholar = mongoose.model('Scholar');
+  res.render('index');
+});
 
-   Scholar.find({},(err, scholars) => {
-    console.log(scholars);
-    res.render('index', {home: true, scholars: scholars});
+app.get('/myprofile', (req, res) => {
+  auth.authRequired();
+  const User = mongoose.model('User');
+
+   User.find({username: req.session.user.username},(err, user) => {
+    
+    res.render('my-profile', {user: user});
   });
 });
 
 app.get('/scholar/add', (req, res) => {
+  auth.authRequired();
   res.render('scholar-add');
 });
 
 app.post('/scholar/add', (req, res) => {
-  
-  const Scholar = mongoose.model('Scholar');
+  auth.authRequired();
+  const User = mongoose.model('User');
   // Build user profile
-  const a = new Scholar({
+    
+    
+    User.updateOne(
+      {username: req.session.user.username},
+    {$set : 
+      {name: req.body.name, degree: req.body.degree, major: req.body.major}}, {upsert: true});
+        
+      User.find({username: req.session.user.username}, (err, user) => {
+        console.log(user);
+        console.log(user.degree);
+      });
+      
+  
+  /*
+  const a = new User({
+    username: req.session.user.username,
+    email: req.session.user.email,
+    password: req.session.user.password,
     name: req.body.name,
     degree: req.body.degree,
     major: req.body.major,
     research_area: req.body.research_area,
     research_topic: req.body.research_topic,
     published_paper: req.body.published_paper
-   // user: req.session.user._id
   });
   a.save((err) => {
     if (!err) {
-      res.redirect('/');
+      res.redirect('/myprofile');
     }
     else {
+      console.log(err);
       res.render('scholar-add', {err: 'saved unsuccesful'});
     }
-  });
+  });*/
 });
 
 app.get('/search', (req, res) => {
@@ -82,10 +117,64 @@ app.get('/search_result', (req, res) => {
   
    Scholar.find({$or: [
     {name: `${input}`}, 
-    {major:`${input}`}
+    {degree: `${input}`},
+    {major:`${input}`},
+    {research_area: `${input}`},
+    {research_topic: `${input}`},
+    {published_paper: `${input}`}
   ]},(err, scholars) => {
     res.render('search-result', {scholars: scholars});
   });
+});
+
+// user 
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+
+app.post('/register', (req, res) => {
+  // setup callbacks for register success and error
+  function success(newUser) {
+    auth.startAuthenticatedSession(req, newUser, (err) => {
+        if (!err) {
+            res.redirect('/');
+        } else {
+            res.render('error', {message: 'err authing???'}); 
+        }
+    });
+  }
+
+  function error(err) {
+    res.render('register', {message: registrationMessages[err.message] ?? 'Registration error'}); 
+  }
+
+  // attempt to register new user
+  auth.register(req.body.username, req.body.email, req.body.password, error, success);
+});
+        
+
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.post('/login', (req, res) => {
+  // setup callbacks for login success and error
+  function success(user) {
+    auth.startAuthenticatedSession(req, user, (err) => {
+      if(!err) {
+        res.redirect('/'); 
+      } else {
+        res.render('error', {message: 'error starting auth sess: ' + err}); 
+      }
+    }); 
+  }
+
+  function error(err) {
+    res.render('login', {message: loginMessages[err.message] || 'Login unsuccessful'}); 
+  }
+
+  // attempt to login
+  auth.login(req.body.username, req.body.password, error, success);
 });
 
 const PORT = process.env.PORT || 3000;
