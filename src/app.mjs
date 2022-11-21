@@ -33,8 +33,8 @@ const registrationMessages = {"USERNAME ALREADY EXISTS": "Username already exist
 
 // require authenticated user for accessing profile
 // require authenticated user for /sholar/add path
-app.use(auth.authRequired(['/scholar/add']));
-app.use(auth.authRequired(['/myprofile']));
+app.use(auth.authRequired(['/edit_profile']));
+app.use(auth.authRequired(['/my_profile']));
 // make {{user}} variable available for all paths
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
@@ -45,22 +45,21 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/myprofile', (req, res) => {
+app.get('/my_profile', (req, res) => {
   auth.authRequired();
   const User = mongoose.model('User');
 
    User.find({username: req.session.user.username},(err, user) => {
-    
     res.render('my-profile', {user: user});
   });
 });
 
-app.get('/scholar/add', (req, res) => {
+app.get('/edit_profile', (req, res) => {
   auth.authRequired();
-  res.render('scholar-add');
+  res.render('edit-profile');
 });
 
-app.post('/scholar/add', (req, res) => {
+app.post('/edit_profile', (req, res) => {
   auth.authRequired();
   const User = mongoose.model('User');
   // Build user profile
@@ -68,36 +67,23 @@ app.post('/scholar/add', (req, res) => {
     
     User.updateOne(
       {username: req.session.user.username},
-    {$set : 
-      {name: req.body.name, degree: req.body.degree, major: req.body.major}}, {upsert: true});
+    {$set: 
+      {name: req.body.name, 
+        degree: req.body.degree, 
+        major: req.body.major, 
+        research_area: req.body.research_area, 
+        research_topic: req.body.research_topic, 
+        published_paper: req.body.published_paper
+      }} 
+      ).then((obj) => { 
+        res.redirect('/my_profile') 
+        }) 
         
-      User.find({username: req.session.user.username}, (err, user) => {
-        console.log(user);
-        console.log(user.degree);
-      });
-      
-  
-  /*
-  const a = new User({
-    username: req.session.user.username,
-    email: req.session.user.email,
-    password: req.session.user.password,
-    name: req.body.name,
-    degree: req.body.degree,
-    major: req.body.major,
-    research_area: req.body.research_area,
-    research_topic: req.body.research_topic,
-    published_paper: req.body.published_paper
-  });
-  a.save((err) => {
-    if (!err) {
-      res.redirect('/myprofile');
-    }
-    else {
-      console.log(err);
-      res.render('scholar-add', {err: 'saved unsuccesful'});
-    }
-  });*/
+        .catch((err) => { 
+        console.log('Error: ' + err);
+        });
+   
+
 });
 
 app.get('/search', (req, res) => {
