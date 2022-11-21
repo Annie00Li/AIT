@@ -1,4 +1,4 @@
-
+document.addEventListener('DOMContentLoaded', main);
 
 function main() {
     const btn = document.querySelector(".searchBtn");
