@@ -1,0 +1,13 @@
+<h1>My Profile</h1>
+<ol>
+{{#each user as |u|}}
+<div>Name: {{name}}</div>
+<div>Degree: {{degree}}</div>
+<div>Major: {{major}}</div>
+<div>Research Area: {{research_area}}</div>
+<div>Research Topic: {{research_topic}}</div>
+<div>Published Paper: {{published_paper}}</div>
+<br>
+<div><a href="/edit_profile">Edit My Profile</a></div>
+{{/each}}
+</ol>
