@@ -1,0 +1,34 @@
+<!--
+    for greetings
+    -->
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+const element = <Welcome name={{user.name}} />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+
+<!--
+    for display image
+    -->
+import image from './assets/image.jpg'
+
+function App() {
+  return (
+    <div style={{ margin: '100px' }}>
+      <img src={image} alt="img1" style={{ width: '400px', }}/>
+    </div>
+  );
+}
+
+export default App;
+
+<!--
+    for learning and arranging ui
+
+    https://reactjsexample.com/social-media-app-using-react-js-ui/
+    https://github.com/Adithej/fb-clone-app
+    -->
