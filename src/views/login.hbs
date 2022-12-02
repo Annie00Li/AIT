@@ -1,17 +1,17 @@
-<h2>Login</h2>
+<h2 id="login">Log In</h2>
 {{#if message}}
 <div class="error">{{ message }}</div>
 {{/if}}
 <form method="POST" action="login">
-	<div>
+	<div class="login">
 		<label for="username">Username:</label>
 		<input type="text" name="username" value="">
 	</div>
-	<div>
+	<div class="login">
 		<label for="password">Password:</label> 
 		<input type="password" name="password" value="">
 	</div>
 	<div>
-		<input type="submit" value="Login">
+		<input id="loginBtn" type="submit" value="Login">
 	</div>
 </form>

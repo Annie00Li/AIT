@@ -1,3 +1,140 @@
+#outer {
+	width: 100vw;
+	height: 100vh;
+	background-color: #fff;
+	text-align: right;
+}
+
+#outer > #greeting {
+	position: relative;
+	left: 33%;
+	height: 100%;
+	top: -.01em;
+	width: 67%;
+	
+}
+
+#greetText {
+	position: absolute;
+	left: 7%;
+	top: 52%;
+	width: 22%;
+}
+
+#greetHeader {
+	position: absolute;
+	left: 7%;
+	top: 38%;
+	text-align: left;
+}
+
+#helloUser {
+	position: absolute;
+	left: 4em;
+	top: 30%;
+	width: 450px;
+	left: 7%;
+}
+
+#name {
+	position: absolute;
+	top: 40%;
+	left: 10%;
+	width: 20%;
+	text-align: left;
+}
+
+#Degree {
+	text-align: left;
+	position: absolute;
+	top: 60%;
+	left: 10%;
+}
+
+#degree {
+	font-size: 28px;
+	position: relative;
+	top: 0.2em;
+	width: 20%;
+	
+}
+
+#Major {
+	text-align: left;
+	position: absolute;
+	top: 75%;
+	left: 10%;
+}
+
+#major {
+	font-size: 28px;
+	position: relative;
+	top: 0.em;
+	width: 90%;
+}
+
+#Area {
+	text-align: left;
+	position: absolute;
+	top: 25%;
+	left: 40%;
+}
+
+#area {
+	font-size: 28px;
+	position: relative;
+	top: 0.4em;
+	width: 90%;
+}
+
+#Topic {
+	text-align: left;
+	position: absolute;
+	top: 25%;
+	left: 65%;
+}
+
+#topic {
+	font-size: 28px;
+	position: relative;
+	top: 0.4em;
+	width: 90%;
+}
+
+#profile_Paper {
+	text-align: left;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+}
+
+li {
+	display: list-item;
+	list-style-type: square;
+	margin-bottom: .5em;
+}
+
+#profile_paper {
+	font-size: 28px;
+	position: relative;
+	top: 0.4em;
+	overflow: scroll;
+	height: 50vh;
+	width: 50vw;
+}
+::-webkit-scrollbar {
+	background: transparent;
+}
+
+#edit_profile {
+	position: absolute;
+	top: 15%;
+	left: 12%;
+	font-family: 'Itim';
+	font-size: 36px;
+	opacity: 0.5;
+}
+
 .search {
 	position: absolute;
 	width: 500px;
@@ -23,21 +160,66 @@ body {
 	padding: none;
 }
 
-.home-link {
-	position: absolute;
-	top: 0.25em;
-	left: 0.75em;
+a:link {
+	text-decoration: none;
+	color: black;
 }
 
-.login-status {
+a {
+	color: black;
+}
+  
+
+.WIRS {
 	position: absolute;
-	top: 0.25em;
-	right: 0.75em;
+	left: 3%;
+	top: 100%;
+	font-size: 48px;
+	font-family: 'Condiment';
+}
+
+.home-link {
+	position: absolute;
+	top: 100%;
+	right: 15%;
+	color: black;
+}
+
+#login-status {
+	position: absolute;
+	top: 100%;
+	right: 5%;
+}
+
+#login {
+	position: absolute;
+	left: 35%;
+	top: 15%;
+}
+
+.login {
+	position: relative;
+	left: 35%;
+	top: 10em;
+	margin-bottom: 2em;
+	border-bottom: 1px solid #565656;
+	width: 30%;
+}
+
+#loginBtn {
+	position: absolute;
+	left: 35%;
+	top: 55%;
+	background-color: #52796F;
+	color: white;
+	width: 30%;
+	height: 50px;
+	
 }
 
 header {
 	position: relative;
-	background-color: #ccddff;
+	background-color: #fff;
 	margin: 0px;
 	height: 1.5em;
 	padding: 0.25em 1em 0em 1em;
@@ -50,14 +232,6 @@ nav > a, nav > a:visited {
 
 h1, h2 {
 	text-align: center;
-}
-
-#outer {
-	width: 100vw;
-	height: 100vh;
-	background-color: #fff;
-	margin: auto;
-	text-align: left;
 }
 
 div.content {
@@ -97,4 +271,23 @@ form textarea, form input {
 input {
 	border: 1px solid #555;
 	font-size: 1em;
+}
+
+.topics {
+	font-family: 'Istok Web';
+	font-size: 48px;
+	text-align: left;
+}
+
+.chat_name_text {
+	font-family: 'Inter';
+	letter-spacing: 0.1px;
+	font-size: 36px;
+	text-align: left;
+}
+
+.topic_header {
+	font-size: 30px;
+	font-family: 'Itim';
+	text-align: left;
 }
