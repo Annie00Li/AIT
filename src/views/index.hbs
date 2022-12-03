@@ -1,10 +1,14 @@
-<h1 class="topics" id="greetHeader">We Research</h1>
+<div id="homepage">
+<h1 class="topics intro" id="greetHeader">We Research</h1>
 
 <div class="chat_name_text" id="helloUser">
     {{#if user}}
     Hello, {{user.username}}
     {{/if}}
 </div>
-<div class="topic_header" id="greetText">Get the work done, learn from each other, build long-term relationship, and share interests</div>
+<div class="intro topic_header" id="greetText">Get the work done, learn from each other, build long-term relationship, and share interests</div>
 
-<img id="greeting" src="/img/main.jpg" alt="greeting"></img>
+<div style="max-height: 100vh; overflow: hidden;">
+    <img class="intro" id="greetImg" src="/img/main.jpg" alt="greeting"></img>
+</div>
+</div>

@@ -2,23 +2,31 @@
 	width: 100vw;
 	height: 100vh;
 	background-color: #fff;
-	text-align: right;
 }
 
-#outer > #greeting {
+#homepage .menu {
+	color: red !important;
+}
+
+#greetImg {
 	position: relative;
 	left: 33%;
 	height: 100%;
-	top: -.01em;
-	width: 67%;
-	
+	top: -5em;
+	width: 100%;
+	transform: translateX(-20px);
+}
+
+.intro {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
 }
 
 #greetText {
 	position: absolute;
 	left: 7%;
 	top: 52%;
-	width: 22%;
+	width: 65%;
 }
 
 #greetHeader {
@@ -38,7 +46,7 @@
 
 #name {
 	position: absolute;
-	top: 40%;
+	top: 42%;
 	left: 10%;
 	width: 20%;
 	text-align: left;
@@ -70,7 +78,7 @@
 	font-size: 28px;
 	position: relative;
 	top: 0.em;
-	width: 90%;
+	width: 75%;
 }
 
 #Area {
@@ -84,7 +92,7 @@
 	font-size: 28px;
 	position: relative;
 	top: 0.4em;
-	width: 90%;
+	width: 75%;
 }
 
 #Topic {
@@ -98,7 +106,7 @@
 	font-size: 28px;
 	position: relative;
 	top: 0.4em;
-	width: 90%;
+	width: 75%;
 }
 
 #profile_Paper {
@@ -114,6 +122,16 @@ li {
 	margin-bottom: .5em;
 }
 
+.portrait {
+	border-radius: 50%;
+}
+
+#i22 {
+	position: absolute;
+	top: 22%;
+	left: 10%;
+}
+
 #profile_paper {
 	font-size: 28px;
 	position: relative;
@@ -126,29 +144,149 @@ li {
 	background: transparent;
 }
 
+.edit_me {
+	outline: 1px solid gray;
+	width: 20vw;
+	color: #52796F;
+	font-size: 24px;
+}
+
+.edit_me input[type="edit"]:focus {
+	outline: 1px solid gray;
+}
+
 #edit_profile {
 	position: absolute;
 	top: 15%;
-	left: 12%;
+	left: 10%;
 	font-family: 'Itim';
-	font-size: 36px;
+	font-size: 32px;
 	opacity: 0.5;
 }
 
+input[type="search"]::placeholder {
+	position: absolute;
+	text-align: left;
+	color: #52796F;
+	opacity: .3;
+	margin: auto;
+	top: 2vh;
+	padding: 7px;
+	left: 10vw;
+}
+
+input[type="search"] {
+	text-indent: 9vw;
+}
+
+input[type="search"]:focus {
+	text-indent: 9vw;
+	outline-color: inherit;
+}
+
+input[type="text"] {
+	border: none;
+	position: relative;
+	top: .7em;
+	height: 5vh;
+	color: #52796F;
+	margin-bottom: .5em;
+	width: 20vw;
+}
+
+input[type="text"]:focus {
+	outline: none;
+}
+
+input[type="email"] {
+	border: none;
+	position: relative;
+	top: .7em;
+	height: 5vh;
+	color: #52796F;
+	margin-bottom: .5em;
+}
+
+input[type="email"]:focus {
+	outline: none;
+}
+
+input[type="password"] {
+	border: none;
+	position: relative;
+	top: .7em;
+	height: 5vh;
+	margin-bottom: .5em;
+}
+
+input[type="password"]:focus {
+	outline: none;
+}
+
+input[type="submit"] {
+	opacity: .8;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	opacity: 1;
+}
+
+
+button[type="submit"] {
+	text-indent: -4999px;
+	overflow: hidden;
+	width: 8vw;
+	height: 8vh;
+	padding: 0;
+	margin: 0;
+	border: 1px solid transparent;
+	border-radius: inherit;
+	background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+	cursor: pointer;
+	opacity: 0.5;
+	position: relative;
+	left: -45%;
+	top: -10vh;
+}
+
+button[type="submit"]:hover
+ {
+	opacity: .8;
+ }
+ 
 .search {
 	position: absolute;
-	width: 500px;
-	height: 300px;
 	top: 50%;
-	left: 50%;
-	margin-left: -150px;
-	margin-top: -50px;
+	left: 15%;
 }
 
 .searchValue {
 	color: gray;
+	width: 70vw;
+	height: 12vh;
+	border-color: #F58F18;
 }
 
+#search_result {
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	width: 40%;
+	text-align: left;
+}
+
+.results {
+	display: inline-block;
+	position: relative;
+	top: 15vh;
+	border: 1px solid gray;
+	padding: 30px;
+	padding-left: 200px;
+	width: 40vw;
+	line-height: 50px;
+	overflow: scroll;
+}
 
 body {
 	font-family: Garamond, sans-serif;
@@ -172,44 +310,48 @@ a {
 
 .WIRS {
 	position: absolute;
-	left: 3%;
-	top: 100%;
+	left: 4%;
+	top: 5vh;
 	font-size: 48px;
 	font-family: 'Condiment';
 }
 
-.home-link {
-	position: absolute;
-	top: 100%;
-	right: 15%;
+.menu {
+	display: inline-block;
 	color: black;
+	margin-left: 1.5em;
+	position: relative;
+	left: 30%;
+	top: 5vh;
+	z-index: 1;
 }
 
 #login-status {
 	position: absolute;
 	top: 100%;
-	right: 5%;
+	left: 15%;
 }
 
-#login {
+.Login {
 	position: absolute;
-	left: 35%;
-	top: 15%;
+	left: 35vw;
+	top: 15vh;
 }
 
 .login {
 	position: relative;
 	left: 35%;
-	top: 10em;
-	margin-bottom: 2em;
+	top: 30vh;
+	margin-bottom: 1.5em;
 	border-bottom: 1px solid #565656;
 	width: 30%;
+	text-align: left;
 }
 
-#loginBtn {
+.loginBtn {
 	position: absolute;
 	left: 35%;
-	top: 55%;
+	top: 70vh;
 	background-color: #52796F;
 	color: white;
 	width: 30%;
@@ -221,8 +363,9 @@ header {
 	position: relative;
 	background-color: #fff;
 	margin: 0px;
-	height: 1.5em;
-	padding: 0.25em 1em 0em 1em;
+	height: 0em;
+	right: 0px;
+	
 	/*text-align: right;*/
 }
 
@@ -235,7 +378,7 @@ h1, h2 {
 }
 
 div.content {
-	padding: 0em 1em 1em 1em;
+	padding: 0em;
 }
 
 .note {
@@ -244,10 +387,11 @@ div.content {
 }
 
 .error {
-	background-color: #eecccc;
-	padding: 0.25em;
-	margin-bottom: 1em;
+	position: absolute;
+	color: red;
 	text-align: center;	
+	top: 80%;
+	left: 35%;
 }
 
 .success {

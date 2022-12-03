@@ -1,36 +1,30 @@
 
 <ol>
 {{#each user as |u|}}
-<h2 class="topics" id="name">{{name}}n</h2>
+<img class="portrait" id="i22" src="/img/22.jpg" alt="i22"></img>
+<h2 class="topics" id="name">{{name}}</h2>
 <div class="chat_name_text">
 <div id="Degree">Degree
-    <div id="degree">{{degree}}d</div>
+    <div id="degree">{{degree}}</div>
 </div>
 
 <div id="Major">Major 
-    <div id="major">{{major}}major really really really really long</div>
+    <div id="major">{{major}}</div>
 </div>
 <div id="Area">Research Area
-    <div id="area">{{research_area}}re</div>
+    <div id="area">{{research_area}}</div>
 </div>
 <div id="Topic">Research Topic
-    <div id="topic">{{research_topic}}to</div>
+    <div id="topic">{{research_topic}}</div>
 </div>
 <div id="profile_Paper">Published Paper
     <ul  id="profile_paper">
-        <li>{{published_paper}}Person Search with Natural Language Description, IEEE 2018 pages 1970–1977, October 2018; 
-  Person Search Challenges and Solutions: A Survey, IJCAI 2021 Survey Track,  May 2021; </li>
-        <li>Probabilistic Methods for Finding People, International Journal of Computer Vision, 43, pages45–68 (2001), June 2001
-  A Survey of Person Re-identification Based on Deep Learning, ICCPR 2021, pages 36–42, October 2021
-  A Review on Computer Vision-Based Methods for Human Action Recognition, J. Imaging 2020, 10 June 2020
-  TransMix: Attend to Mix for Vision Transformers, CVPR 2022
-  Person Search Based on Improved Joint Learning Network, CSAE 2019, pages 1–7, October 2019
-  Person Search via Deep Integrated Networks, Appl. Sci. 2020, 25 December 2019
-  A cascaded multitask network with deformable spatial transform on person search, SAGE Journal, June 25, 2019</li>
+        <li>{{published_paper}}</li>
     </ul>
 </div>
 </div>
 <br>
 <div id="edit_profile"><a href="/edit_profile">Edit My Profile</a></div>
+<a href="/edit_profile"><i class="fa-regular fa-pen-to-square" style="position: absolute; top: 16%; left: 23%;"></i></a>
 {{/each}}
 </ol>

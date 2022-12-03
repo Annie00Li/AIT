@@ -1,29 +1,31 @@
-<h2>Build your profile</h2>
+<div class="topics Login">Build your profile</div>
 <form method="POST" action="">
-	<div>
-		<label for="title">Name:</label>
-		<input type="text" id="name" name="name" value="">
+	<div class="login" style="border: none;">
+		<div>
+			<label for="title">Name:</label>
+			<input class="edit_me chat_name_text" type="edit" id="name2" name="name" value={{user.name}}>
+		</div>
+		<div>
+			<label for="title">Degree:</label>
+			<input class="edit_me chat_name_text" type="edit" id="degree2" name="degree" value="">
+		</div>
+		<div>
+			<label for="title">Major:</label>
+			<input class="edit_me chat_name_text" type="edit" id="major2" name="major" value="">
+		</div>
+		<div>
+			<label for="title">Research Area:</label>
+			<input class="edit_me chat_name_text" type="edit" id="research_area2" name="research_area" value="">
+		</div>
+		<div>
+			<label for="title">Research Topic:</label>
+			<input class="edit_me chat_name_text" type="edit" id="research_topic2" name="research_topic" value="">
+		</div>
+		<div>
+			<label for="description">Published Paper:</label>
+			<textarea class="chat_name_text" style="height: 30vh;" name="published_paper" id="published_paper2"></textarea>
+		</div>
 	</div>
-	<div>
-		<label for="title">Degree:</label>
-		<input type="text" id="degree" name="degree" value="">
-	</div>
-	<div>
-		<label for="title">Major:</label>
-		<input type="text" id="major" name="major" value="">
-	</div>
-	<div>
-		<label for="title">Research Area:</label>
-		<input type="text" id="research_area" name="research_area" value="">
-	</div>
-	<div>
-		<label for="title">Research Topic:</label>
-		<input type="text" id="research_topic" name="research_topic" value="">
-	</div>
-	<div>
-		<label for="description">Published Paper:</label>
-		<textarea name="published_paper" id="published_paper"></textarea>
-	</div>
-	<input type="submit" value="Add">
+	<input class="loginBtn" style="position:absolute; left: 35%; top: 120%; width: 10%;" type="submit" value="Save & Continue">
 	<div>{{{err}}}</div>
 </form>

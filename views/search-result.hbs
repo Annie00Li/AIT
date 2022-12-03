@@ -1,11 +1,18 @@
- <li>
-    {{#each scholars as |s|}}
-    <div>Name: {{name}}</div>
-    <div>Degree: {{degree}}</div>
-    <div>Major: {{major}}</div>
-    <div>Research Area: {{research_area}}</div>
-    <div>Research Topic: {{research_topic}}</div>
-    <div>Published Paper: {{published_paper}}</div>
-    <br>
-    {{/each}}
- </li>
+<div class="topics" style="font-style: italic; position: absolute; left: 25%; top: 20%;">Here are the results we find for you</div>
+ <div id="search_result">
+
+   {{#each scholars as |s|}}
+   <div class="results">
+      <div class="topics" style="line-height: 60px;">{{name}}</div>
+      <div class="topic_header" style="color: #52796F; opacity: .7;">
+         <div>Degree: {{degree}}</div>
+         <div>Major: {{major}}</div>
+         <div>Research Area: {{research_area}}</div>
+         <div>Research Topic: {{research_topic}}</div>
+         <div>Published Paper: {{published_paper}}</div>
+      </div>
+   </div>
+   <br>
+   {{/each}}
+  
+ </div>

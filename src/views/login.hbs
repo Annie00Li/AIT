@@ -1,17 +1,17 @@
-<h2 id="login">Log In</h2>
+<div class="topics Login">Log In</div>
 {{#if message}}
 <div class="error">{{ message }}</div>
 {{/if}}
 <form method="POST" action="login">
-	<div class="login">
+	<div class="login chat_name_text" style="font-size: 28px;">
 		<label for="username">Username:</label>
-		<input type="text" name="username" value="">
+		<input class="topic_header" type="text" name="username" value="">
 	</div>
-	<div class="login">
+	<div class="login chat_name_text" style="font-size: 28px;">
 		<label for="password">Password:</label> 
-		<input type="password" name="password" value="">
+		<input class="topic_header" type="password" name="password" value="">
 	</div>
 	<div>
-		<input id="loginBtn" type="submit" value="Login">
+		<input class="loginBtn" type="submit" value="Login">
 	</div>
 </form>

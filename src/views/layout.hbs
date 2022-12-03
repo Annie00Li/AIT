@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Itim">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Istok+Web">
+	<script src="https://kit.fontawesome.com/1d4fdb5f73.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -15,15 +16,15 @@
 		<header>
 			<nav>
 				<span class="WIRS"><a href="/">WIRS</a></span>
-				<span class="home-link topic_header">
 				
+				<span class="menu topic_header">
 				<a href="/search">Search</a>
 				</span>
-				<span class="topic_header" id="login-status">
+				<span class="menu topic_header">
 					{{#if user}}
 						<a href="/my_profile">My Profile</a>
 					{{else}}
-					<a href="/register">Register</a> or <a href="/login">Login</a>
+					<a href="/register">Register</a><span style="color: gray; font-size: 24px;">  or  </span><a href="/login">Login</a>
 					{{/if}}
 				</span>
 				
